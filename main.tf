@@ -38,4 +38,3 @@ resource "azurerm_sql_database" "appdb" {
     azurerm_sql_server.app_server
   ]
 }
-
