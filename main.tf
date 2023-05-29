@@ -49,4 +49,3 @@ resource "azurerm_sql_firewall_rule" "app_server_firewall_rule" {
     azurerm_sql_server.app_server
   ]
 }
-
