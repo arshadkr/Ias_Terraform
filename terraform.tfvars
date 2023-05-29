@@ -1,6 +1,6 @@
 resource_group_name      = "apps_grp"
 location                 = "Japan East"
-app_server               = "appserver001"
+app_server001            = "appserver001"
 app_db                   = "appdb"
 app_server_firewall_rule = "app_server_firewall_rule"
 sql_uname                = "sqladmin"

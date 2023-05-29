@@ -5,7 +5,7 @@ resource "azurerm_resource_group" "apps_grp" {
 }
 
 resource "azurerm_sql_server" "app_server" {
-  name                         = var.app_server
+  name                         = var.app_server001
   resource_group_name          = azurerm_resource_group.apps_grp.name
   location                     = azurerm_resource_group.apps_grp.location
   version                      = var.sql_version

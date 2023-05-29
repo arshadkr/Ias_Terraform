@@ -13,7 +13,7 @@ variable "app_db" {
   description = "App Database"
 }
 
-variable "app_server" {
+variable "app_server001" {
   type        = string
   description = "App Server001"
 }
