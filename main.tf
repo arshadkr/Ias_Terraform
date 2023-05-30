@@ -33,3 +33,17 @@ resource "azurerm_sql_firewall_rule" "app_server_firewall_rule" {
     azurerm_sql_server.app-server
   ]
 }
+
+resource "azurerm_container_registry" "acr" {
+  name                = var.acr_name
+  resource_group_name = var.resource_group_name
+  location            = var.location
+  sku                 = "Basic"
+  admin_enabled       = true
+}
+
+output "admin_password" {
+  value           = azurerm_container_registry.acr.admin_password
+  descdescription = "The object ID of the user"
+  sensensitive    = true
+}

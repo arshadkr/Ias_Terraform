@@ -37,3 +37,8 @@ variable "sql_version" {
   type        = string
   description = "version"
 }
+
+variable "acr_name" {
+  type        = string
+  description = "Container Registry"
+}
