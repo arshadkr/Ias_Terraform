@@ -46,3 +46,11 @@ resource "azurerm_storage_container" "tfstate" {
   name                 = var.storage_container_name
   storage_account_name = azurerm_storage_account.storage_account.name
 }
+
+resource "azurerm_container_registry" "acr" {
+  name                = var.acr_name
+  resource_group_name = azurerm_resource_group.apps-grp.name
+  location            = var.location
+  sku                 = "Basic"
+  admin_enabled       = false
+}
