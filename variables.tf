@@ -42,3 +42,19 @@ variable "acr_name" {
   type        = string
   description = "Container Registry"
 }
+
+variable "storage_name" {
+  type        = string
+  description = "Storage_Name"
+}
+
+variable "storage_container_name" {
+  type        = string
+  description = "Storage Container Name"
+}
+
+variable "storage_blob_name" {
+  type        = string
+  description = "Storage Blob Name"
+}
+

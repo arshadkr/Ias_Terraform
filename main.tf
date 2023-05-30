@@ -34,16 +34,15 @@ resource "azurerm_sql_firewall_rule" "app_server_firewall_rule" {
   ]
 }
 
-resource "azurerm_container_registry" "acr" {
-  name                = var.acr_name
-  resource_group_name = var.resource_group_name
-  location            = var.location
-  sku                 = "Basic"
-  admin_enabled       = true
+resource "azurerm_storage_account" "storage_account" {
+  name                     = var.storage_name
+  resource_group_name      = azurerm_resource_group.apps-grp.name
+  location                 = var.location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
 }
 
-output "admin_password" {
-  value       = azurerm_container_registry.acr.admin_password
-  description = "The object ID of the user"
-  sensitive   = true
+resource "azurerm_storage_container" "tfstate" {
+  name                 = var.storage_container_name
+  storage_account_name = var.storage_name
 }
