@@ -57,8 +57,3 @@ variable "storage_blob_name" {
   type        = string
   description = "Storage Blob Name"
 }
-
-variable "test" {
-  type        = string
-  description = "test"
-}
