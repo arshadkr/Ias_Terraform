@@ -60,11 +60,10 @@ resource "azurerm_kubernetes_cluster" "aks" {
   location            = var.location
   resource_group_name = azurerm_resource_group.apps-grp.name
   dns_prefix          = var.cluster_name
-}
-
-default_node_pool {
-  name                = "default"
-  node_count          = var.node_count
-  vm_size             = "Standard_DS2_V2"
-  enable_auto_scaling = false
+  default_node_pool {
+    name                = "default"
+    node_count          = var.node_count
+    vm_size             = "Standard_DS2_V2"
+    enable_auto_scaling = false
+  }
 }
