@@ -57,3 +57,18 @@ variable "storage_blob_name" {
   type        = string
   description = "Storage Blob Name"
 }
+
+variable "cluster_name" {
+  type        = string
+  description = "AKS name"
+}
+
+variable "kubernetes_version" {
+  type        = string
+  description = "Kubernetes Version"
+}
+
+variable "system_node_count" {
+  type        = number
+  description = "AKS node count"
+}
