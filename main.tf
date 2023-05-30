@@ -43,7 +43,7 @@ resource "azurerm_container_registry" "acr" {
 }
 
 output "admin_password" {
-  value           = azurerm_container_registry.acr.admin_password
-  descdescription = "The object ID of the user"
-  sensensitive    = true
+  value       = azurerm_container_registry.acr.admin_password
+  description = "The object ID of the user"
+  sensitive   = true
 }
