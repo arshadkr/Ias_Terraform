@@ -68,7 +68,7 @@ variable "kubernetes_version" {
   description = "Kubernetes Version"
 }
 
-variable "system_node_count" {
+variable "node_count" {
   type        = number
   description = "AKS node count"
 }
