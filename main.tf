@@ -66,4 +66,12 @@ resource "azurerm_kubernetes_cluster" "aks" {
     vm_size             = "Standard_DS2_V2"
     enable_auto_scaling = false
   }
+  identity {
+    type = "SystemAssigned"
+  }
+
+  network_profile {
+    load_balancer_sku = "Standard"
+    network_plugin    = "kubenet"
+  }
 }
