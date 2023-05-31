@@ -74,12 +74,5 @@ resource "azurerm_kubernetes_cluster" "aks" {
     load_balancer_sku = "basic"
     network_plugin    = "kubenet"
   }
-  acr_profile {
-    name                = var.acr_name
-    subscription_id     = data.azurerm_subscription.current.subscription_id
-    resource_group_name = azurerm_resource_group.apps-grp.name
-    tenant_id           = data.azurerm_client_config.current.tenant_id
-    admin_enabled       = false
-  }
 }
 
