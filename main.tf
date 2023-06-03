@@ -75,3 +75,31 @@ resource "azurerm_key_vault" "app_vault" {
   ]
 }
 
+resource "azurerm_key_vault_secret" "key_ssh_in_vault" {
+  name         = var.sshkeysecret
+  value        = file("~/.ssh/id_rsa_terraform.pub")
+  key_vault_id = azurerm_key_vault.app_vault.id
+}
+
+resource "azurerm_key_vault_secret" "key_client_id" {
+  name         = var.clientidkvsecretname
+  value        = var.spnclientid
+  key_vault_id = azurerm_key_vault.app_vault.id
+}
+
+resource "azurerm_key_vault_secret" "key_client_secret" {
+  name         = var.spnkvsecretname
+  value        = var.spnclientsecret
+  key_vault_id = azurerm_key_vault.app_vault.id
+}
+
+resource "azurerm_key_vault_access_policy" "key_spn_access" {
+  key_vault_id = azurerm_key_vault.app_vault.id
+  tenant_id    = data.azurerm_client_config.current.tenant_id
+  object_id    = var.spobjectID
+
+  secret_permissions = [
+    "Get",
+    "Set",
+  ]
+}
