@@ -60,13 +60,13 @@ resource "azurerm_key_vault" "app_vault" {
   access_policy {
     tenant_id = data.azurerm_client_config.current.tenant_id
     object_id = data.azurerm_client_config.current.object_id
-    key_permission = [
+    key_permissions = [
       "get",
     ]
-    secret_permission = [
+    secret_permissions = [
       "get", "backup", "delete", "list", "purge", "recover", "restore", "set",
     ]
-    storage_permission = [
+    storage_permissions = [
       "get",
     ]
   }
