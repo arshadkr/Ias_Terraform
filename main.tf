@@ -61,16 +61,17 @@ resource "azurerm_key_vault" "app_vault" {
     tenant_id = data.azurerm_client_config.current.tenant_id
     object_id = data.azurerm_client_config.current.object_id
     key_permissions = [
-      "get",
+      "get"
     ]
     secret_permissions = [
-      "get", "backup", "delete", "list", "purge", "recover", "restore", "set",
+      "get", "backup", "delete", "list", "purge", "recover", "restore", "set"
     ]
     storage_permissions = [
-      "get",
+      "get", "list"
     ]
   }
   depends_on = [
     azurerm_resource_group.apps-grp
   ]
 }
+
