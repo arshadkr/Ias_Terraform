@@ -72,3 +72,8 @@ variable "node_count" {
   type        = number
   description = "AKS node count"
 }
+
+variable "app_keyvault" {
+  type        = string
+  description = "Key vault Name"
+}
