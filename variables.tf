@@ -77,18 +77,3 @@ variable "app_keyvault" {
   type        = string
   description = "Key vault Name"
 }
-
-variable "sshkeysecret" {
-  type        = string
-  description = "SSHKey"
-}
-
-variable "clientidkvsecretname" {
-  type        = string
-  description = "Key vault Name"
-}
-
-variable "spnkvsecretname" {
-  type        = string
-  description = "Key vault Name"
-}

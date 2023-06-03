@@ -14,6 +14,3 @@ cluster_name             = "jrcs-aks"
 kubernetes_version       = "1.19.13"
 node_count               = 1
 app_keyvault             = "appvault001"
-sshkeysecret             = "aksshpubkey"
-clientidkvsecretname     = "spn-id"
-spnkvsecretname          = "spn-secret"
