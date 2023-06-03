@@ -67,7 +67,7 @@ resource "azurerm_key_vault" "app_vault" {
       "Get", "Backup", "Delete", "List", "Purge", "Recover", "Restore", "Set"
     ]
     storage_permissions = [
-      "Get"
+      "Get", "Set", "List"
     ]
   }
   depends_on = [
