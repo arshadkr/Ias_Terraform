@@ -34,4 +34,16 @@ resource "azurerm_sql_firewall_rule" "app_server_firewall_rule" {
   ]
 }
 
+resource "azurerm_storage_account" "storage_account" {
+  name                     = var.storage_name
+  resource_group_name      = azurerm_resource_group.apps-grp.name
+  location                 = var.location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+}
+
+resource "azurerm_storage_container" "tfstate" {
+  name                 = var.storage_container_name
+  storage_account_name = azurerm_storage_account.storage_account.name
+}
 
