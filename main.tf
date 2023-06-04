@@ -139,3 +139,22 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     Environment = "Demo"
   }
 }
+
+data "azuread_service_principal" "aks_principal" {
+  application_id = data.azurerm_key_vault_secret.spn_id.value
+}
+
+resource "azurerm_container_registry" "acr" {
+  name                = var.acr_name
+  resource_group_name = azurerm_resource_group.apps-grp.name
+  location            = var.location
+  sku                 = "Basic"
+  admin_enabled       = true
+}
+
+resource "azurerm_role_assignment" "acrpull_role" {
+  scope                            = azurerm_container_registry.acr.id
+  role_definition_name             = "AcrPull"
+  principal_id                     = data.azuread_service_principal.aks_principal.id
+  skip_service_principal_aad_check = true
+}
