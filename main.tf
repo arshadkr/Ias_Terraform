@@ -130,10 +130,6 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     }
   }
 
-  role_based_access_control {
-    enabled = true
-  }
-
   service_principal {
     client_id     = data.azurerm_key_vault_secret.spn_id.value
     client_secret = data.azurerm_key_vault_secret.spn_secret.value
