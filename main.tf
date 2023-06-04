@@ -94,3 +94,17 @@ data "azurerm_key_vault_secret" "spn_secret" {
   name         = var.spnkvsecret
   key_vault_id = data.azurerm_key_vault.azure_vault.id
 }
+
+resource "azurerm_virtual_network" "aks_vnet" {
+  name                = var.aks_vnet_name
+  resource_group_name = azurerm_resource_group.apps-grp.name
+  location            = var.location
+  address_space       = var.vnetcidr
+}
+
+resource "azurerm_subnet" "aks_subnet" {
+  name                 = "aks_subnet"
+  resource_group_name  = azurerm_resource_group.apps-grp.name
+  virtual_network_name = azurerm_virtual_network.aks_vnet.name
+  address_prefixes     = var.subnetcidr
+}

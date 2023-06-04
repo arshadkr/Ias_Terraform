@@ -18,3 +18,6 @@ keyvault_name            = "JrcsTest2"
 sshkvsecret              = "akssshpubkey"
 clientidkvsecret         = "spn-id"
 spnkvsecret              = "spn-secret"
+aks_vnet_name            = "aksvnet"
+vnetcidr                 = ["10.0.0.0/24"]
+subnetcidr               = ["10.0.0.0/25"]

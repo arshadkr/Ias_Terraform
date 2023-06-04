@@ -98,3 +98,17 @@ variable "spnkvsecret" {
   description = "kv spn secret"
 }
 
+variable "aks_vnet_name" {
+  type        = string
+  description = "aks vnet"
+}
+
+variable "vnetcidr" {
+  type        = string
+  description = "vnetci dir"
+}
+
+variable "subnetcidr" {
+  type        = string
+  description = "subnet dir"
+}
