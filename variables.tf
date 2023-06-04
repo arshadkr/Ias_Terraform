@@ -112,3 +112,23 @@ variable "subnetcidr" {
   type        = list(any)
   description = "subnet dir"
 }
+
+variable "dns_name" {
+  type        = string
+  description = "dns name"
+}
+
+variable "agent_pools" {
+  type = object({
+    name            = string
+    count           = number
+    vm_size         = string
+    os_disk_size_gb = string
+    }
+  )
+}
+
+variable "admin_username" {
+  type    = string
+}
+

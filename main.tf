@@ -108,3 +108,38 @@ resource "azurerm_subnet" "aks_subnet" {
   virtual_network_name = azurerm_virtual_network.aks_vnet.name
   address_prefixes     = var.subnetcidr
 }
+
+resource "azurerm_kubernetes_cluster" "aks_cluster" {
+  name                = var.cluster_name
+  location            = var.location
+  resource_group_name = azurerm_resource_group.apps-grp.name
+  dns_prefix          = var.dns_name
+
+
+  default_node_pool {
+    name            = var.agent_pools.name
+    node_count      = var.agent_pools.count
+    vm_size         = var.agent_pools.vm_size
+    os_disk_size_gb = var.agent_pools.os_disk_size_gb
+  }
+
+  linux_profile {
+    admin_username = var.admin_username
+    ssh_key {
+      key_data = data.azurerm_key_vault_secret.ssh_public_key.value
+    }
+  }
+
+  role_based_access_control {
+    enabled = true
+  }
+
+  service_principal {
+    client_id     = data.azurerm_key_vault_secret.spn_id.value
+    client_secret = data.azurerm_key_vault_secret.spn_secret.value
+  }
+
+  tags = {
+    Environment = "Demo"
+  }
+}
