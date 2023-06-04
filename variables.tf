@@ -104,11 +104,11 @@ variable "aks_vnet_name" {
 }
 
 variable "vnetcidr" {
-  type        = string
+  type        = list(any)
   description = "vnetci dir"
 }
 
 variable "subnetcidr" {
-  type        = string
+  type        = list(any)
   description = "subnet dir"
 }
