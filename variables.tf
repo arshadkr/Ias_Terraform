@@ -77,3 +77,24 @@ variable "app_keyvault" {
   type        = string
   description = "Key vault Name"
 }
+
+variable "keyvault_name" {
+  type        = string
+  description = "Key vault for jrcs2"
+}
+
+variable "sshkvsecret" {
+  type        = string
+  description = "kv ssh secret"
+}
+
+variable "clientidkvsecret" {
+  type        = string
+  description = "kv client"
+}
+
+variable "spnkvsecret" {
+  type        = string
+  description = "kv spn secret"
+}
+
